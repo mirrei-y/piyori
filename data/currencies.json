@@ -1,0 +1,11 @@
+{
+    "main": {
+        "name": "ぴよぴよ"
+    },
+    "ticket_gacha": {
+        "name": "ガチャチケット"
+    },
+    "ticket_bath": {
+        "name": "お風呂洗いチケット"
+    }
+}

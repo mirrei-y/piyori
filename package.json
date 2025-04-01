@@ -1,0 +1,34 @@
+{
+	"name": "nuxt-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "pnpm run build && wrangler pages dev",
+		"postinstall": "nuxt prepare",
+		"deploy": "pnpm run build && wrangler pages deploy",
+		"cf-typegen": "wrangler types"
+	},
+	"dependencies": {
+		"@google/genai": "^0.13.0",
+		"@pinia/nuxt": "0.11.0",
+		"jose": "^6.0.11",
+		"nuxt": "^3.17.3",
+		"pinia": "^3.0.2",
+		"three": "^0.176.0",
+		"ulid": "^3.0.0",
+		"vue": "^3.5.13",
+		"vue-router": "^4.5.1"
+	},
+	"packageManager": "pnpm@8.10.5+sha1.4370a069f21873a0ad83c785b8048ed8caf6e6e9",
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20250513.0",
+		"@types/three": "^0.176.0",
+		"h3": "^1.15.3",
+		"nitro-cloudflare-dev": "^0.2.2",
+		"sass-embedded": "^1.88.0",
+		"wrangler": "^4.15.0"
+	}
+}

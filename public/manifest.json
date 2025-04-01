@@ -1,0 +1,15 @@
+{
+    "short_name": "Piyori",
+    "name": "Piyori",
+    "icons": [
+        {
+            "src": "/assets/images/icon.svg",
+            "sizes": "256x256",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#ffd676",
+    "background_color": "#ffffff"
+}
