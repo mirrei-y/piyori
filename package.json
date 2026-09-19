@@ -12,23 +12,21 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@google/genai": "^0.13.0",
-		"@pinia/nuxt": "0.11.0",
-		"jose": "^6.0.11",
-		"nuxt": "^3.17.3",
-		"pinia": "^3.0.2",
-		"three": "^0.176.0",
-		"ulid": "^3.0.0",
-		"vue": "^3.5.13",
-		"vue-router": "^4.5.1"
+		"@google/genai": "^2.8.0",
+		"@pinia/nuxt": "0.11.3",
+		"jose": "^6.2.3",
+		"nuxt": "^4.4.8",
+		"pinia": "^3.0.4",
+		"three": "^0.184.0",
+		"ulid": "^3.0.2",
+		"vue": "^3.5.38",
+		"vue-router": "^5.1.0"
 	},
 	"packageManager": "pnpm@8.10.5+sha1.4370a069f21873a0ad83c785b8048ed8caf6e6e9",
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250513.0",
-		"@types/three": "^0.176.0",
-		"h3": "^1.15.3",
-		"nitro-cloudflare-dev": "^0.2.2",
-		"sass-embedded": "^1.88.0",
-		"wrangler": "^4.15.0"
+		"@types/three": "^0.184.1",
+		"h3": "2.0.1-rc.22",
+		"sass-embedded": "^1.100.0",
+		"wrangler": "^4.100.0"
 	}
 }

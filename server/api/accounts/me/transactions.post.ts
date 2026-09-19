@@ -1,22 +1,28 @@
-import { defineEventHandler, readBody, createError } from "h3";
+import { defineEventHandler, readBody, HTTPError } from "h3";
 import { verifyToken } from "~/composables/authentication";
 import { ulid } from "ulid";
 
 export default defineEventHandler(async (event) => {
     const db = event.context.cloudflare.env.db;
-    const body = await readBody(event);
-    const recipient = body.recipient;
-    const amount = body.amount;
-    const currency = body.currency;
-    const reason = body.reason;
+    const body = await readBody<{
+        recipient: string;
+        amount: number;
+        currency: string;
+        reason: string;
+    }>(event);
+    const recipient = body?.recipient;
+    const amount = body?.amount;
+    const currency = body?.currency;
+    const reason = body?.reason;
+    if (!recipient || !amount || !currency || !reason) throw new HTTPError({ status: 400 });
 
-    if (amount <= 0) throw createError({ status: 400, message: "送金額は1以上である必要があります。" });
+    if (amount <= 0) throw new HTTPError({ status: 400, message: "送金額は1以上である必要があります。" });
 
     // NOTE: 送金先アカウントが存在するか確認
     const recipientAccount = await db.prepare("SELECT * FROM accounts_wallet WHERE id = ?")
         .bind(recipient)
         .first();
-    if (!recipientAccount) throw createError({ status: 400, message: "送金先アカウントが存在しません。" });
+    if (!recipientAccount) throw new HTTPError({ status: 400, message: "送金先アカウントが存在しません。" });
 
     const userId = await verifyToken(event);
 
@@ -38,6 +44,6 @@ export default defineEventHandler(async (event) => {
 
         return { success: true };
     } catch (error: any) {
-        throw createError({ status: 500, message: error.message });
+        throw new HTTPError({ status: 500, message: error.message });
     }
 });

@@ -1,5 +1,5 @@
 import { isEventActive } from "~/composables/date";
-import { IEvent } from "~/types/event";
+import type { IEvent } from "~/types/event";
 
 export default defineEventHandler(async event => {
     const db = event.context.cloudflare.env.db;

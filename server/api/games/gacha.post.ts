@@ -17,7 +17,7 @@ const GACHA_TABLE = [
 
 function pickFromArray<T>(array: T[]): T {
     if (array.length === 0) throw new Error("Invalid array");
-    return array[Math.floor(Math.random() * array.length)];
+    return array[Math.floor(Math.random() * array.length)] as T;
 }
 function pickItem(): GachaItem {
     const random = Math.random();

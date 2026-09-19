@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2026-06-13',
   devtools: { enabled: false },
 
   ssr: false,
@@ -30,15 +30,9 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "cloudflare-pages",
-
-    cloudflare: {
-      deployConfig: true,
-      nodeCompat: true
-    }
   },
 
-  modules: ["nitro-cloudflare-dev", "@pinia/nuxt"],
-
+  modules: ["@pinia/nuxt"],
   pinia: {
     storesDirs: ["./stores/**"],
   },

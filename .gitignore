@@ -32,3 +32,6 @@ logs
 .clinerules
 
 /files
+/pages/rules.vue
+/public/assets/images/
+/public/assets/sounds/

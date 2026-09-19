@@ -1,4 +1,5 @@
-import { IUser } from "~/types/user";
+import { HTTPError } from "h3";
+import type { IUser } from "~/types/user";
 import { verifyToken } from "~/composables/authentication";
 
 export default defineEventHandler(async event => {
@@ -6,7 +7,7 @@ export default defineEventHandler(async event => {
     const uid = await verifyToken(event);
 
     const userData = await db.prepare("SELECT * FROM accounts WHERE id = ?;").bind(uid).first();
-    if (!userData) throw createError({ status: 404 });
+    if (!userData) throw new HTTPError({ status: 404 });
 
     const { results: records } = await db.prepare("SELECT * FROM accounts_wallet WHERE id = ?;").bind(uid).all();
 
